@@ -21,15 +21,15 @@ module.exports = {
     
             dev = await Dev.create({
                 name,
-                avatar_url, 
                 github_username, 
-                bio, 
+                bio,
+                avatar_url, 
                 techs: techsArray, 
                 location,
             });
         }
 
-        return response.json(Dev);
+        return response.json(dev);
     },
 
     async index(response, request){
@@ -48,7 +48,7 @@ module.exports = {
             coordinates: [longitude, latitude]
         }
 
-        const dev = await Dev.findByIdAndUpdate(index, {
+        const dev = await Dev.findByIdAndUpdate(_id, {
             name, bio, avatar_url, techsArray, location
         });
 
