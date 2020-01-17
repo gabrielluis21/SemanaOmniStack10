@@ -17,6 +17,7 @@ function App() {
 
       setDevs(response.data);
     }
+    loadDevs();
   },[]);
 
   async function handleAddDev(data) {
@@ -35,7 +36,7 @@ function App() {
       <main>
         <ul>
           {devs.map(dev => (
-              <DevItem key={dev._id} devs={dev} />
+              <DevItem key={dev._id} dev={dev} />
             )
           )}
           
